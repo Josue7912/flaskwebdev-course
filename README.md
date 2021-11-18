@@ -14,4 +14,4 @@ To be able to create an app that records the feedback of a customer and you rece
 
 ### Libraries and Modules I used
 
-You can find all the information in the <i>requirements.txt</i> file of this repository.
+You can find all the information in the <i><a href="https://github.com/Josue7912/flaskwebdev-course/blob/main/requirements.txt">requirements.txt</a></i> file of this repository.
