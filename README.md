@@ -1,1 +1,1 @@
-# flaskwebdev-course
+# Flask Project: Feedback App
