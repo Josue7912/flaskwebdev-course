@@ -10,7 +10,7 @@ In this project I have created an app which saves customers feedback about the s
 
 To be able to create an app that records the feedback of a customer and you receive an email notification I used PostgreSQL as database to save all data and Mailtrap (mailtrap.io) as a virtual inbox with a random email address which will send/receive those emails.
 
-
+The app has been created using VSCode and then got uploaded to Heroku to deploy the app!
 
 ### Libraries and Modules I used
 
