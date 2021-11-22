@@ -1,9 +1,10 @@
-from flask import request, render_template
+from flask import request, render_template, flash
 from . import main
 from .. import db
 from ..models import Feedback
 from flask_mail import Message
 from app import mail
+import re
 
 @main.route('/')
 def index():
@@ -11,6 +12,7 @@ def index():
 
 @main.route('/submit', methods=['POST'])
 def submit():
+    pattern = '^[A-Za-z0-9]*$'
     if request.method == 'POST':
         customer = request.form['customer']
         dealer = request.form['dealer']
@@ -19,6 +21,8 @@ def submit():
         suggestions = request.form['suggestions']
         if customer == '' or dealer == '':
             return render_template('index.html', message='Please enter required fields')
+        if not re.match(pattern, customer):
+            return render_template('index.html', message="Please input a valid Incident number")
         if db.session.query(Feedback).filter(Feedback.customer == customer).count() == 0:
             data = Feedback(customer, dealer, rating, comments, suggestions)
             db.session.add(data)
@@ -33,4 +37,5 @@ def submit():
                             * Suggestions: {suggestions}"
             mail.send(msg)
             return render_template('thankyou.html')
-        return render_template('index.html', message='You have already submmitted your feedback')
+        flash('You have already submmitted your feedback')
+        return render_template('index.html')

@@ -1,4 +1,7 @@
+import profile
+
 class Config:
+    SECRET_KEY = "Keep it a secret, at all costs"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     ENV = 'prod'
@@ -10,11 +13,11 @@ class Config:
 
     MAIL_SERVER='smtp.mailtrap.io'
     MAIL_PORT = 2525
-    MAIL_USERNAME = '9aaad920aa81ea'
-    MAIL_PASSWORD = '4c393c4d2ef87d'
+
+    MAIL_USERNAME = profile.username
+    MAIL_PASSWORD = profile.password
     MAIL_USE_TLS = True
     MAIL_USE_SSL = False
-
 
     HP_MAIL_SUBJECT_PREFIX = 'HP Feedback - '
     HP_MAIL_SENDER = 'email1@example.com'
