@@ -1,10 +1,13 @@
-from flask import Flask, app
+from flask import Flask, session
 from flask_sqlalchemy import SQLAlchemy
 from config import config
 from flask_mail import Mail
+from .. import app
+from flask_bootstrap import Bootstrap
 
 db = SQLAlchemy()
 mail = Mail()
+bootstrap = Bootstrap()
 
 def create_app(config_name='default'):
     app = Flask(__name__)
@@ -14,6 +17,7 @@ def create_app(config_name='default'):
 
     db.init_app(app)
     mail.init_app(app)
+    bootstrap.init_app(app)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
