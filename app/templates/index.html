@@ -19,6 +19,7 @@
         <br>
         <br>
         <h2>Please fill in the following fields:</h2>
+        <h6>All fields with (*) are mandatory for Feedback submission</h6>
 
         {% block content %}
         <div class="container">
@@ -32,7 +33,34 @@
         </div>
         {% endblock content %}
 
-    {{ wtf.quick.form(form) }}
+
+    <form action="/submit" method="POST">
+        <div class=form-group>
+        <dt>Incident number(*): </dt>
+        {{ form.customer }}
+        </div>
+        <div class=form-group>
+        <dt>Customer Agent(*): </dt>
+        {{ form.dealer }}
+        </div>
+        <dt>Please rate your Customer Services agent(*): </dt>
+        <div class="form-group">
+        {% for subfield in form.rating %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+        </tr>
+        {% endfor %}
+        </div>
+        <div class=form-group>
+        <dt>Please leave any comments about your experience: </dt>
+        {{ form.comments }}
+        </div>
+        <div class=form-group>
+        <dt>Tell us how we could improve our Service</dt>
+        {{ form.suggestions }}
+        </div>
+        {{ form.submit(class="btn btn-primary") }}
 
     </div>
 </body>

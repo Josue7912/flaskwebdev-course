@@ -2,7 +2,6 @@ from flask import Flask, session
 from flask_sqlalchemy import SQLAlchemy
 from config import config
 from flask_mail import Mail
-from .. import app
 from flask_bootstrap import Bootstrap
 
 db = SQLAlchemy()
