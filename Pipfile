@@ -12,6 +12,7 @@ gunicorn = "*"
 flask_mail = "*"
 postgres = "*"
 flask_bootstrap = "*"
+flask_wtf = "*"
 
 [dev-packages]
 
