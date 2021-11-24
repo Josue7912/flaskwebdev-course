@@ -11,6 +11,7 @@ flask-sqlalchemy = "*"
 gunicorn = "*"
 flask_mail = "*"
 postgres = "*"
+flask_bootstrap = "*"
 
 [dev-packages]
 
