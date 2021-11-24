@@ -28,22 +28,22 @@
                     <button type="button" class="done" data-dismiss="alert">&times;</button>
                     {{ msg }}
                 </div>
-                {% endfor %}
-            {% block page_content %}{% endblock  %}
+            {% endfor %}
         </div>
         {% endblock content %}
 
 
     <form action="/submit" method="POST">
+        {{ form.csrf_token }}
         <div class=form-group>
-        <dt>Incident number(*): </dt>
+        <dt>Incident number (*): </dt>
         {{ form.customer }}
         </div>
         <div class=form-group>
-        <dt>Customer Agent(*): </dt>
+        <dt>Customer Agent (*): </dt>
         {{ form.dealer }}
         </div>
-        <dt>Please rate your Customer Services agent(*): </dt>
+        <dt>Please rate your Customer Services agent (*): </dt>
         <div class="form-group">
         {% for subfield in form.rating %}
         <tr>
